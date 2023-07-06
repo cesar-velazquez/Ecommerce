@@ -14,6 +14,7 @@
     --tarjetas: hsl(0, 0%, 90%);
     --color-filtro: #4e5861;
     --color-fondo-producto: #c4c7c4;
+    --footerback: #e6e6e6;
     /* FIN  temas background-color */
     /* fuentes */
     --titulo: 'Roboto', sans-serif;
@@ -532,7 +533,7 @@ body.darkmode {
     }
 
     .section__container {
-        background-color: var(--tarjetas);
+        background-color: var(--footerback);
         padding: .5rem;
         display: grid;
         align-items: flex-start;

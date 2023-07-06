@@ -69,7 +69,7 @@ changeIconHTML.addEventListener('click', function () {
                 fondo.style.backgroundColor = "#000039";            
             });
         });
-        console.log(footercont.style.backgroundColor = "#000");
+        console.log(footercont.style.backgroundColor = "#1b1b1b");
         footertitle.forEach((titulo)=>{
             titulo.style.color = "#FFFFFF";
         });
@@ -90,7 +90,7 @@ changeIconHTML.addEventListener('click', function () {
         });
         console.log(spaceSocial.style.backgroundColor="#d7d1d1");
         console.log(linkRepositorio.style.color ="#ffffff");
-        console.log(footercont.style.backgroundColor = "#ffffff");
+        console.log(footercont.style.backgroundColor = "#e6e6e6");
         console.log((rectangulo.style.backgroundColor = "#fd135a"));
         console.log((btnShowMore.style.color = "#FFFFFF"));
         console.log((btnShowMore.style.backgroundColor = "#000000"));
