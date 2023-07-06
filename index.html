@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fuentes a ocupar  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto&display=swap"
+        rel="stylesheet">
+    <!-- final fuentes -->
+
+
+    <!-- estilo para el darkmode -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="src/css/styles.css">
+    <script src="src/js/main.js" defer></script>
+
+    <!-- fin estilo para el darkmode -->
+
+    <link rel="stylesheet" href="src/styles.css">
+    <title>Academlo Store</title>
+</head>
+
+<body>
+
+    <header class="header__Section">
+        <nav class="navbar__section hidden scrolled" id="navbar">
+            <div class="primeraMitad">
+                <svg class="svg__mostrar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.92 56.48"
+                    class="nav_logo-icon">
+                    <title>Academlo Logo</title>
+                    <g>
+                        <g>
+                            <path
+                                d="M28.58,15.39H25.16L35.78,36H31.49L20.67,15.71,8.23,38.82H18.94l3-5.43h-3.4l-1.47,2.54h-4l2.69-5.09H25.85l4.28,8H40.67ZM17.23,28.21l3.57-6.6,3.57,6.6Z">
+                            </path>
+                        </g>
+                    </g>
+                </svg>
+                <a href="index.html" class="inicio">Store</a>
+            </div>
+
+            <div class="segundaMitad">
+                <div class="botones__Menu">
+                    <ul class="iconos__nav">
+                        <li>
+                            <a class="btn_mode" id="changeTheme">
+                                <i class='bx bxs-moon'></i></a>
+                        </li>
+                        <li>
+                            <a class="btn_mode" id="changeTheme">
+                                <i class='bx bx-cart-alt'></i>
+                        </li>
+                        <li>
+                            <a class="btn_mode" id="changeTheme">
+                                <i class='bx bx-menu'></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="container">
+        <div class="menubar">
+        </div>
+
+        <div class="muestraropa">
+            <div class="centrar__img">
+                <img class="sudadera" width="150px" src="src/img/imgprincipal.png" alt="Sudadera">
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <h3 class="titulo">New Sweatshirt</h3>
+        <h3 class="subtitulo">COLLECTIONS 2022</h3>
+        <p class="parrafo">Latest arrival of the new Hanes Midweight Crewneck sweatshirt imported from the
+            2022 series, with a modern design.</p>
+        <div class="price">$14.00</div>
+        <div class="btnShow">
+            <button class="show__more"> Show More </button>
+        </div>
+    </div>
+
+    <div class="btn__products">
+        <button class="btn__filtros">
+            Show all
+            <p class="parrafo__filtro">Show all products</p>
+        </button>
+        <button class="btn__filtros">
+            Shirt
+            <p class="parrafo__filtro">7 products</p>
+        </button>
+        <button class="btn__filtros">
+            Hoddie
+            <p class="parrafo__filtro">6 products</p>
+        </button>
+        <button class="btn__filtros">
+            Sweater
+            <p class="parrafo__filtro">5 products</p>
+        </button>
+    </div>
+
+    <!-- PRODUCTOS SHOP -->
+    <div class="product__principal"></div>
+
+    <!-- INICIA FOOTER -->
+    <footer>
+        <section class="section__container">
+            <div class="footer__div">
+                <h3 class="footer__title">Our Informaction</h3>
+                <ul>
+                    <li>
+                        <a class="footer__a" href="#">Toluca - México</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer__div">
+                <h3 class="footer__title">About Us</h3>
+                <ul>
+                    <li>
+                        <a class="footer__a" href="#">Support Center </a>
+                    </li>
+                    <li>
+                        <a class="footer__a" href="#">Customer Support</a>
+                    </li>
+                    <li>
+                        <a class="footer__a" href="#">About Us</a>
+                    </li>
+                    <li>
+                        <a class="footer__a" href="#">Copy Right</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__div">
+                <h3 class="footer__title">Product</h3>
+                <ul>
+                    <li>
+                        <a class="footer__a" href="#">Hoddies</a>
+                    </li>
+                    <li>
+                        <a class="footer__a" href="#">Shirt</a>
+                    </li>
+                    <li>
+                        <a class="footer__a" href="#">About Us</a>
+                    </li>
+                    <li>
+                        <a class="footer__a" href="#">Sweatshirts</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer__div">
+                <h3 class="footer__title">Social</h3>
+                <ul class="footer__ul__social">
+                    <li>
+                        <a class="footer__a__social" href="#">
+                            <i class='bx bxl-facebook-circle'></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="footer__a__social" href="#">
+                            <i class='bx bxl-instagram-alt'></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="footer__a__social" href="#">
+                            <i class='bx bxs-briefcase'></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- <div class="footer__div__social">
+                <p class="footer__parrafo">Nombre completo, correo y <a href="#">repositorio</a> de la persona que lo
+                    realizo</p>
+            </div> -->
+        </section>
+        <div class="footer__div__social">
+            <p class="footer__parrafo">Nombre completo, correo y <a class="parrafo__a" href="#"> repositorio </a> de la
+                persona que lo
+                realizo</p>
+        </div>
+    </footer>
+    <div class="content__loader">
+        <div class="loader">
+            <!-- <img class="img__loader" src="src/img/loader.jpg" alt=""> -->
+        </div>
+    </div>
+</body>
+
+</html>
