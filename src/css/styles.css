@@ -250,7 +250,7 @@ body.darkmode {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: var(--full-white);
+    background-color: var(--full-white);    
 }
 
 .parrafo__filtro {

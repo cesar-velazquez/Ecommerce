@@ -76,6 +76,20 @@ function printerMenu() {
         }
     });
 }
+
+function printerCartLight() {
+    const iconsCarts = document.querySelectorAll(".iconos__nav .bx-menu")
+    iconsCarts.forEach((iconCart) => {    
+        iconCart.style.backgroundColor="#00000000";        
+    });
+}
+function printerCartDark() {
+    const iconsCarts = document.querySelectorAll(".iconos__nav .bx-menu")
+    iconsCarts.forEach((iconCart) => {    
+        iconCart.style.backgroundColor="#FFFFFF";        
+    });
+}
+
 // }
 // fin menu bar
 //INICIO DE MODAL
@@ -86,7 +100,6 @@ const changeThemeHTML = document.querySelector("#changeTheme");
 changeThemeHTML.addEventListener("click", function () {
     document.body.classList.toggle("darkmode");
 });
-
 const changeIconHTML = document.getElementById('changeTheme');
 const rectangulo = document.querySelector('.muestraropa');
 const headerSection = document.querySelector('.segundaMitad');
@@ -102,7 +115,8 @@ changeIconHTML.addEventListener('click', function () {
     if (icon.classList.contains('bxs-moon')) {
         icon.classList.remove('bxs-moon');
         icon.classList.add('bxs-sun');
-        console.log(icon.style.color = "red");
+        console.log(icon.style.color = "#ffffff");
+        printerCartDark();
 
         buttonFiltros.forEach((boton) => {
             boton.style.backgroundColor = "#000000";
@@ -126,6 +140,7 @@ changeIconHTML.addEventListener('click', function () {
     } else {
         icon.classList.remove('bxs-sun');
         icon.classList.add('bxs-moon');
+        printerCartLight();
         buttonFiltros.forEach((boton) => {
             boton.style.backgroundColor = "#ffffff";
             boton.style.color = "#000";
