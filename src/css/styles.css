@@ -37,10 +37,14 @@ body {
     
     .bxs-moon::before {
         color: var(--color);
+        font-size: 1.3rem;
+        cursor: pointer;
     }
 
     .bx-cart-alt::before {
         color: var(--color);
+        font-size: 1.3rem;
+        cursor: pointer;
     }
 
     .bx-menu::before {
@@ -271,6 +275,14 @@ body.darkmode {
     box-shadow: var(--shadow-tarjetas);
     border-style: none;
 }
+.precioprod{
+    background-color: #efe9e9;
+    padding: 0.1rem;
+    /* font-size: 15px; */
+    line-height: 112%;    
+    border-radius: 0.5rem;
+    padding-left: 1rem;
+}
 
 .noresaltar {
     font-size: 12px;
@@ -280,12 +292,12 @@ body.darkmode {
 .reseña {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     color: #000;
     font-size: .8rem;
     font-family: 'Open Sans';
     height: 160px;
-    padding: 1rem;
+    padding: 0.3rem;
 }
 
 .section__container {
@@ -375,7 +387,6 @@ body.darkmode {
 .loader {
     width: 200px;
     height: 200px;
-    /* background-image: url(/src/img/loader.jpg); */
     border-radius: 50%;
     border: 5px solid var(--academlo);
     border-top: none;

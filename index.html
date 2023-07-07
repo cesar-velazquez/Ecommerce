@@ -23,6 +23,9 @@
     <!-- estilo para el darkmode -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="src/css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"
+        integrity="sha512-nKZDK+ztK6Ug+2B6DZx+QtgeyAmo9YThZob8O3xgjqhw2IVQdAITFasl/jqbyDwclMkLXFOZRiytnUrXk/PM6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="src/js/main.js" defer></script>
 
     <!-- fin estilo para el darkmode -->
@@ -59,7 +62,7 @@
                         </li>
                         <li>
                             <a class="btn_mode" id="changeTheme">
-                                <i class='bx bx-cart-alt'></i>
+                                <i class='bx bx-cart-alt bx-spin-hover'></i>
                         </li>
                         <li>
                             <a class="btn_mode" id="changeTheme">
@@ -95,22 +98,23 @@
     </div>
 
     <div class="btn__products">
-        <button class="btn__filtros">
+        <button class="btn__filtros" id="all" data-filter="all">
             Show all
             <p class="parrafo__filtro">Show all products</p>
         </button>
-        <button class="btn__filtros">
+        <button class="btn__filtros" id="shirt" data-filter=".shirt">
             Shirt
             <p class="parrafo__filtro">7 products</p>
         </button>
-        <button class="btn__filtros">
+        <button class="btn__filtros" id="hoddie" data-filter=".hoddie">
             Hoddie
             <p class="parrafo__filtro">6 products</p>
         </button>
-        <button class="btn__filtros">
+        <button class="btn__filtros" id="sweater" data-filter=".sweater">
             Sweater
             <p class="parrafo__filtro">5 products</p>
         </button>
+        <div class="products"></div>
     </div>
 
     <!-- PRODUCTOS SHOP -->
@@ -189,14 +193,15 @@
             </div> -->
         </section>
         <div class="footer__div__social">
-            <p class="footer__parrafo">Nombre completo, correo y <a class="parrafo__a" href="https://github.com/cesar-velazquez/Ecommerce"> repositorio </a> de la
+            <p class="footer__parrafo">Nombre completo, correo y <a class="parrafo__a"
+                    href="https://github.com/cesar-velazquez/Ecommerce"> repositorio </a> de la
                 persona que lo
                 realizo</p>
         </div>
     </footer>
     <div class="content__loader">
         <div class="loader">
-            <!-- <img class="img__loader" src="src/img/loader.jpg" alt=""> -->
+            <img class="img__loader" src="src/img/loaderAcad.png" alt="Loader">
         </div>
     </div>
 </body>
