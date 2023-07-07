@@ -77,6 +77,31 @@ function printerMenu() {
     });
 }
 
+function printerImg() {
+    const cardsImgs = document.querySelectorAll(".contain__product .img__prod");
+    cardsImgs.forEach((cardImg) =>{
+        cardImg.style.backgroundColor="#011118";
+    })
+}
+function printerImgLight() {
+    const cardsImgs = document.querySelectorAll(".contain__product .img__prod");
+    cardsImgs.forEach((cardImg) =>{
+        cardImg.style.backgroundColor="#c2ccd0";
+    });
+}
+function printerDescription() {
+    const cardsDescriptions = document.querySelectorAll(".contain__product .precio");
+    cardsDescriptions.forEach((cardDescription)=>{        
+        cardDescription.style.backgroundColor="#23231b";      
+    });
+}
+     function printerDescriptionLight(){
+        const cardsDescriptions = document.querySelectorAll(".contain__product .precio");
+        cardsDescriptions.forEach((cardDescription)=>{        
+            cardDescription.style.backgroundColor="#e7e7bb";      
+        });
+     }
+
 function printerCartLight() {
     const iconsCarts = document.querySelectorAll(".iconos__nav .bx-menu")
     iconsCarts.forEach((iconCart) => {    
@@ -117,7 +142,8 @@ changeIconHTML.addEventListener('click', function () {
         icon.classList.add('bxs-sun');
         console.log(icon.style.color = "#ffffff");
         printerCartDark();
-
+        printerImg();
+        printerDescription();
         buttonFiltros.forEach((boton) => {
             boton.style.backgroundColor = "#000000";
             boton.style.color = "#ffffff";
@@ -141,6 +167,8 @@ changeIconHTML.addEventListener('click', function () {
         icon.classList.remove('bxs-sun');
         icon.classList.add('bxs-moon');
         printerCartLight();
+        printerImgLight();
+        printerDescriptionLight();
         buttonFiltros.forEach((boton) => {
             boton.style.backgroundColor = "#ffffff";
             boton.style.color = "#000";
