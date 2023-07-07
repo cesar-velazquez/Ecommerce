@@ -14,15 +14,18 @@ async function getApi() {
 function printArticles(products) {
     html = "";
 
-    for (const { image, name, price, quantity, description, category } of products) {
+    for (const { id, image, name, price, quantity, description, category } of products) {
         html += `
-        <div class="contain__product ${category}">
+        <div class="contain__product ${category} ${id}">
             <div class="img__prod">
                 <img src="${image}" alt="${name}">
             </div>            
             <div class="precio">
-                <p class="precioprod">$${price} <span class="noresaltar">Stock: ${quantity}</span> <br><strong>${category}</strong> </p>                
-                <p class="reseña">${description}</p>
+                <p class="precioprod">$${price}.00 
+                <span class="noresaltar">Stock: ${quantity}</span>
+                <i class='bx bx-cart-add  btn__carr' id=${id}></i></p>                                                        
+                <p class="category"><strong>${category}</strong></p>
+                <p class="reseña">${name}</p>
             </div>              
         </div>
         `;
@@ -33,6 +36,9 @@ function printArticles(products) {
 
 
 async function main() {
+    const store = {
+        cart: {},
+    }
     const articles = await getApi();
     printArticles(articles);
 
@@ -45,8 +51,28 @@ async function main() {
         }
     });
 }
+// DENTRO DEL MAIN ESTÁ TAMBIEN LA HERRAMIENTA PARA FILTRAR 
 // FIN DEL PROCESO DE OBTENCION DE UNA API CON UNA FUNCIÓN
+// inicio de menu bar
+// function ContolMenu() {
+    const menuHtml = document.querySelector(".menu_des");
+const iconmenuHTML = document.querySelector(".bx-menu");
+const links = document.querySelectorAll(".menu_des .inicio");
 
+function controllerMenu() {
+    menuHtml.classList.toggle("menu__show");
+}
+iconmenuHTML.addEventListener("click", controllerMenu);
+
+links.forEach((link) => {
+    link.addEventListener("click", controllerMenu);
+    console.log(link);
+});
+// }
+// fin menu bar
+//INICIO DE MODAL
+
+//FIN MODAL
 //inicio cambio de backgrounds en la pag
 const changeThemeHTML = document.querySelector("#changeTheme");
 changeThemeHTML.addEventListener("click", function () {

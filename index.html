@@ -51,6 +51,14 @@
                     </g>
                 </svg>
                 <a href="index.html" class="inicio">Store</a>
+                <ul class="menu_des">
+                    <li>
+                        <a href="#home" class="inicio">Home</a>
+                    </li>
+                    <li>
+                        <a href="#prod" class="inicio">Products</a>
+                    </li>
+                    </ul>
             </div>
 
             <div class="segundaMitad">
@@ -65,7 +73,7 @@
                                 <i class='bx bx-cart-alt bx-spin-hover'></i>
                         </li>
                         <li>
-                            <a class="btn_mode" id="changeTheme">
+                            <!-- <a class="btn_mode" id="changeTheme"> -->
                                 <i class='bx bx-menu'></i>
                         </li>
                     </ul>
@@ -86,7 +94,7 @@
         </div>
     </div>
 
-    <div class="content">
+    <div class="content" id="home">
         <h3 class="titulo">New Sweatshirt</h3>
         <h3 class="subtitulo">COLLECTIONS 2022</h3>
         <p class="parrafo">Latest arrival of the new Hanes Midweight Crewneck sweatshirt imported from the
@@ -118,7 +126,24 @@
     </div>
 
     <!-- PRODUCTOS SHOP -->
-    <div class="product__principal"></div>
+    <div id="prod" class="product__principal"></div>
+<!-- InicioModal -->
+<div class="inicio__Modal">
+    <div class="content__modal ${id}">
+        <div class="modal__info">
+            <i class='bx bx-comment-x' ></i>
+            <div class="modal__img">
+                <img src="/src/img/loader.jpg" alt="">
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- carrito de compras -->
+    <div class="cart">
+        <div class="cart__products"></div>
+        <div class="cart__products"></div>
+    </div>
+
 
     <!-- INICIA FOOTER -->
     <footer>
