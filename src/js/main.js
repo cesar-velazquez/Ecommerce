@@ -70,6 +70,11 @@ function printerMenu() {
         link.addEventListener("click", controllerMenu);
         console.log(link);
     });
+    window.addEventListener('click', function (event) {
+        if(!menuHtml.contains(event.target) && !iconmenuHTML.contains(event.target)){
+            menuHtml.classList.remove("menu__show");
+        }
+    });
 }
 // }
 // fin menu bar
