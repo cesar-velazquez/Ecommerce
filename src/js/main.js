@@ -41,6 +41,7 @@ async function main() {
     }
     const articles = await getApi();
     printArticles(articles);
+    printerMenu();
 
     mixitup(".product__principal", {
         selectors: {
@@ -55,19 +56,21 @@ async function main() {
 // FIN DEL PROCESO DE OBTENCION DE UNA API CON UNA FUNCIÓN
 // inicio de menu bar
 // function ContolMenu() {
+function printerMenu() {
     const menuHtml = document.querySelector(".menu_des");
-const iconmenuHTML = document.querySelector(".bx-menu");
-const links = document.querySelectorAll(".menu_des .inicio");
-
-function controllerMenu() {
-    menuHtml.classList.toggle("menu__show");
+    const iconmenuHTML = document.querySelector(".bx-menu");
+    const links = document.querySelectorAll(".menu_des .inicio");
+    
+    function controllerMenu() {
+        menuHtml.classList.toggle("menu__show");
+    }
+    iconmenuHTML.addEventListener("click", controllerMenu);
+    
+    links.forEach((link) => {
+        link.addEventListener("click", controllerMenu);
+        console.log(link);
+    });
 }
-iconmenuHTML.addEventListener("click", controllerMenu);
-
-links.forEach((link) => {
-    link.addEventListener("click", controllerMenu);
-    console.log(link);
-});
 // }
 // fin menu bar
 //INICIO DE MODAL

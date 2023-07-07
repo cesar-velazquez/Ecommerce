@@ -114,7 +114,7 @@ body.darkmode {
     display: none;
 } */
 .bx-menu:before {
-    font-size: 2rem;
+    font-size: 1.3rem;
     cursor: pointer; 
 }
 .primeraMitad {
@@ -717,7 +717,7 @@ body.darkmode {
         color: #0533b3;
     }
 }
-
+/* INICIA RESPONSIVE DE 1000 */
 @media (min-width:1000px) {
     .primeraMitad {
         justify-content: center;
@@ -729,7 +729,6 @@ body.darkmode {
         justify-content: center;
         align-items: center;
     }
-
     .content {
         justify-content: flex-start;
         width: 44%;
