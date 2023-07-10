@@ -224,6 +224,7 @@ body.darkmode {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    font-weight: bold;
 }
 
 .header__Section {
