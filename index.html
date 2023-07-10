@@ -75,7 +75,9 @@
                         <li>
                             <a class="btn_mode" id="changeTheme">
                                 <!-- <i class='bx bx-cart-alt bx-tada-hover'></i> -->
-                                <span class="iconos__nav"><i class="fas fa-shopping-cart"></i></span>
+                                <span class="iconos__nav"><i class="fas fa-shopping-cart">
+                                    <span class="ball"></span>
+                                </i></span>
                         </li>
                         <li>
                             <!-- <a class="btn_mode" id="changeTheme"> -->                                
@@ -144,9 +146,15 @@
         </div>
     </div>
     <!-- carrito de compras -->
-    <div class="cart">
-        <div class="cart__products"></div>
-        <div class="cart__products"></div>
+    <div class="cart cart__show">
+        <div class="cart__products">        </div>
+        <div class="cart__total">
+            <div class="cart__total__info">
+                <p>Units <span id="totalProducts">0</span></p>
+                <p>Total $ <span id="totalPrice">0</span></p>
+            </div>
+            <button class="btnbuy">Comprar</button>
+        </div>
     </div>
 
 
