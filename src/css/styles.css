@@ -105,11 +105,12 @@ body.darkmode {
     cursor: pointer;
 }
 .fa-shopping-cart{
- 
+ /* background-color: #00FFFF; */
+ font-size: 1.3rem; 
 }
 .fa-shopping-cart span{
     display: inline-block;
-    background-color: var(--academlo);
+    background-color: rgba(248, 0, 0, 0.88);
     color: var(--textd-100);
     width: 20px;
     height: 20px;
@@ -118,8 +119,7 @@ body.darkmode {
     display: grid;
     place-items: center;
     position: absolute;
-    top: 1.7rem;
-    right: 1.9rem;
+    top: 1.7rem;    
 }
 
 .cart {
