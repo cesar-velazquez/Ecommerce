@@ -23,11 +23,10 @@ function printArticles(produ) {
             <div class="precio">
                 <p class="precioprod">$${price}.00 
                 <span class="noresaltar">Stock: ${quantity}</span>
-                ${
-                    quantity 
-                    ? `<button class='bx bx-cart-add  product__btn' id=${id}>Add</button>` 
-                    : `<div class="div__sold"><p class="sold__out">Sold Out</p></div>`
-                }
+                ${quantity
+                ? `<button class='bx bx-cart-add  product__btn' id=${id}>Add</button>`
+                : `<div class="div__sold"><p class="sold__out">Sold Out</p></div>`
+            }
                 </p>                                                                        
                 <p class="category"><strong>${category}</strong></p>
                 <p class="reseña">${name}</p>
@@ -133,8 +132,8 @@ function printTotal(store) {
     let totalProducts = 0;
     let totalPrice = 0;
     for (const key in store.cart) {
-        const {amount, price} = store.cart[key];                
-        totalProducts +=amount;
+        const { amount, price } = store.cart[key];
+        totalProducts += amount;
         totalPrice += amount * price;
     }
 
@@ -170,28 +169,28 @@ function controllerCart(store) {
     });
 }
 function controllerTotal(store) {
-    document.querySelector(".btnbuy").addEventListener('click', function() {
+    document.querySelector(".btnbuy").addEventListener('click', function () {
         const response = confirm('Proceder a hacer el pago');
         if (!response) return;
 
         const newArray = [];
-        store.produ.forEach((product)=>{
+        store.produ.forEach((product) => {
             if (store.cart[product.id]) {
                 newArray.push({
                     ...product, quantity: product.quantity - store.cart[product.id].amount,
                 });
-            }else{
+            } else {
                 newArray.push(product);
-            }            
+            }
         });
         console.log(newArray);
         store.produ = newArray;
-        store.cart  = {};
+        store.cart = {};
         localStorage.setItem('produ', JSON.stringify(store.produ));
         localStorage.setItem("cart", JSON.stringify(store.cart));
         printArticles(store.produ);
-        printProductsInCart(store); 
-        printTotal(store);                  
+        printProductsInCart(store);
+        printTotal(store);
     })
 }
 
@@ -209,6 +208,7 @@ async function main() {
     controllerCart(store);
     controllerTotal(store);
     filtrar();
+    printerBackgrounds();
 }
 
 main();
@@ -311,45 +311,88 @@ function printerCartDark() {
         iconCart.style.backgroundColor = "#FFFFFF";
     });
 }
+function printerEnlaceDark() {
+    const printEnlace = document.querySelector(".parrafo__a");
+    printEnlace.style.color = "var(--bgd-100)";
+}
+function printerEnlaceLigth() {
+    const printEnlace = document.querySelector(".parrafo__a");
+    printEnlace.style.color = "var(--bg-100)";
+}
 
-// }
+
+
+
+function printerRectanguloDark() {
+    const rectangulo = document.querySelector('.muestraropa');
+    rectangulo.style.backgroundColor = "var(--accentd-100)";
+}
+
+function printerRectanguloLigth() {
+    const rectangulo = document.querySelector('.muestraropa');
+    rectangulo.style.backgroundColor = "var(--primary-100)";
+}
+
 //inicio cambio de backgrounds en la pag apartir del change mode
-const changeThemeHTML = document.querySelector("#changeTheme");
-changeThemeHTML.addEventListener("click", function () {
-    document.body.classList.toggle("darkmode");
-});
-
-const changeIconHTML = document.getElementById('changeTheme');
-const rectangulo = document.querySelector('.muestraropa');
 
 
-changeIconHTML.addEventListener('click', function () {
-    const icon = changeIconHTML.querySelector('i');
-    if (icon.classList.contains('bxs-moon')) {
-        icon.classList.remove('bxs-moon');
-        icon.classList.add('bxs-sun');
-        icon.style.cursor = "pointer";
-        printBtnsFilterDark();
-        printerCartDark();
+function printerBackgrounds() {
+
+    const changeThemeHTML = document.querySelector("#changeTheme");
+    const changeIconHTML = document.getElementById('changeTheme');
+
+    changeThemeHTML.addEventListener("click", function () {
+        document.body.classList.toggle("darkmode");
+
+        const DarkMode = document.body.classList.contains("darkmode");
+        localStorage.setItem("theme", DarkMode ? "dark" : "light");
+    });
+    changeIconHTML.addEventListener('click', function () {
+        const icon = changeIconHTML.querySelector('i');
+        if (icon.classList.contains('bxs-moon')) {
+
+            icon.classList.remove('bxs-moon');
+            icon.classList.add('bxs-sun');
+            icon.style.cursor = "pointer";
+            printBtnsFilterDark();
+            printerCartDark();
+            // printerImgDark();
+            printPriceDark();
+            printerDescriptionDark();
+            printerEnlaceDark();
+            // printerRectanguloDark();
+        } else {
+            icon.classList.remove('bxs-sun');
+            icon.classList.add('bxs-moon');
+            printBtnsFilterLigth()
+            printerCartLight();
+            // printerImgLight();
+            printPriceLigth();
+            printerDescriptionLight();
+            // printerRectanguloLigth();
+            printerEnlaceLigth();
+
+        }
+    });
+}
+// //fin cambio de backgrounds en la pag
+// // INICIO DE UN LOADER
+window.addEventListener("DOMContentLoaded", function () {
+    //     // Verificar si hay un tema guardado en localStorage
+
+    const savedTheme = localStorage.getItem("theme");
+    //     // Aplicar el tema guardado si existe
+    if (savedTheme === "dark") {
+        document.body.classList.add("darkmode");
+        printerRectanguloDark();
         printerImgDark();
-        printPriceDark();
-        printerDescriptionDark();
-        console.log((rectangulo.style.backgroundColor = "var(--accentd-100)"));
-    } else {
-        icon.classList.remove('bxs-sun');
-        icon.classList.add('bxs-moon');
-        printBtnsFilterLigth()
-        printerCartLight();
-        printerImgLight();
-        printerDescriptionLight();
-        console.log((rectangulo.style.backgroundColor = "var(--primary-100)"));
+    }else{
+        loader();
+        // printerRectanguloLigth();
+        // printerImgLight();
     }
+
 });
-//fin cambio de backgrounds en la pag
-
-
-
-// INICIO DE UN LOADER
 
 
 window.addEventListener("load", function () {

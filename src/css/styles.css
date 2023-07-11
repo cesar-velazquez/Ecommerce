@@ -60,6 +60,21 @@
     box-sizing: border-box;
     scroll-margin-top: 330px;
     list-style: none;
+
+    .scroll::-webkit-scrollbar {
+        width: 1.5rem;    
+    }
+    
+    
+    .scroll::-webkit-scrollbar-track {
+        background:var(--primary-100);
+    }
+    
+    .scroll::-webkit-scrollbar-thumb {
+        background-color:var(--bgd-100);
+        border-radius: 1rem;
+    
+    }
 }
 
 html {
@@ -71,10 +86,15 @@ body {
     color: var(--text-100);
 
     .bxs-moon::before {
-        color: var(--bgd-100);
+        /* color: var(--bgd-100); */
         font-size: 1.3rem;
         cursor: pointer;
     }
+    
+        
+    
+
+
 
     .bx-cart-alt::before {
         color: var(--bgd-100);
@@ -837,10 +857,10 @@ body.darkmode {
 
     .section__container {
         background-color: var(--bg-300);
-        padding: .5rem;
+        padding: 3rem;
         display: grid;
         align-items: flex-start;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         gap: 4rem;
         font-size: 15px;
         font-family: 'Roboto';
