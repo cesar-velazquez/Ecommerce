@@ -864,8 +864,7 @@ body.darkmode {
         width: auto;
         font-size: 1rem;
         font-family: var(--parrafo);
-        font-weight: bold;
-        color: var(--bgd-100);
+        font-weight: bold;        
         opacity: .5s;
         margin-top: 5%;
         padding: 0 2rem;
@@ -1054,8 +1053,7 @@ body.darkmode {
         width: auto;
         font-size: 1rem;
         font-family: var(--parrafo);
-        font-weight: bold;
-        color: var(--bgd-300);
+        font-weight: bold;        
         opacity: .5s;
         margin-top: 5%;
         padding-left: 1.2rem;
