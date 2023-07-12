@@ -320,8 +320,7 @@ function printerBackgrounds() {
 //fin cambio darmode
 // INICIO DE UN LOADER para guardar el darkmode
 window.addEventListener("DOMContentLoaded", function () {
-    const savedTheme = localStorage.getItem("theme");
-        // Aplicar el tema guardado si existe
+    const savedTheme = localStorage.getItem("theme");        
     if (savedTheme === "dark") {
         document.body.classList.add("darkmode");        
     } 
