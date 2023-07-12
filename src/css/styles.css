@@ -563,8 +563,8 @@ body.darkmode {
     transition: transform 0.5s;
 }
 
-.img__prod:hover img {
-    transform: translateY(-20px);
+.img__prod:hover img {    
+    transform: rotateY(360deg);
 }
 
 .precio {
@@ -770,7 +770,7 @@ body.darkmode {
     }
 
     .menu_des {
-        background-color: var(--bgd-100);
+        background-color: var(--bg-300);
         position: fixed;
         top: 60px;
         left: -100%;
