@@ -47,6 +47,7 @@
     --shadow-btn: 0px 0px 20px rgba(0, 0, 0, 0.5);
     --shadow-tarjetas: 0px 1px 2px 0px rgba(0, 0, 0, 0.5);
     --shadow-carrito: 0px 1px 15px rgba(0, 0, 0, 0.956);
+    --shadow-boton: 0px 1px 15px rgb(210 2 2 / 96%);
     /* fin sombras */
     /* tamaños */
     --h-header: 50px;
@@ -183,6 +184,11 @@ body.darkmode {
 }
 .bx-menu::before{
     color: var(--bg-100);
+}
+.show__more{
+    border-color: var(--prueba);
+    border-style: solid;
+    box-shadow: var(--shadow-boton);
 }
 
 }
@@ -503,7 +509,9 @@ body.darkmode {
     text-align: center;
     display: flex;
     align-items: center;
-    padding: 0rem 2rem;
+    padding: 0rem 1rem;    
+    border-style: .5px solid;
+    box-shadow: var(--shadow-carrito);
 }
 
 .btn__products {
