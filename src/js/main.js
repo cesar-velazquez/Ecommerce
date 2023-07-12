@@ -29,7 +29,7 @@ function printArticles(produ) {
             }
                 </p>                                                                        
                 <p class="category"><strong>${category}</strong></p>
-                <p class="reseña">${name}</p>
+                <p class="reseña" id=${id}>${name}</p>
             </div>              
         </div>
         `;
@@ -194,6 +194,59 @@ function controllerTotal(store) {
     })
 }
 
+function printerModal() {    
+    let modal = "";
+    modal +=`
+    <div class="content__modal ">
+        <div class="modal__info">
+            <i class='bx bx-comment-x' ></i>
+            <div class="modal__img">
+            <h1>dlfkjglfkdjgklfdjglkdf</h1>
+                <img src="/src/img/loader.jpg" alt="">
+            </div>
+            </div>
+        </div>
+    `;  
+    document.querySelector(".inicio__modal").innerHTML = modal;
+    // const inicioModal = document.querySelector('.inicio__modal');
+    // const cerrarModal = document.querySelector('.bx-comment-x');
+
+    // cerrarModal.addEventListener('click', function () {
+    //     inicioModal.classList.toggle('inicio__modal__show');
+    // });
+}
+
+
+function showModal(store) {
+    const containProductHTML = document.querySelector(".product__principal");
+    containProductHTML.addEventListener('click', function (e) {
+        if (e.target.classList.contains("reseña")) {
+            const id = Number(e.target.id);
+            console.log(id);
+            if (id > 0) {
+                printerModal(store);
+                const inicioModal = document.querySelector('.inicio__modal');
+                inicioModal.classList.toggle('inicio__modal__show');
+            }
+        }
+    });
+}
+
+function hiddennav() {
+    window.addEventListener("scroll", function () {
+        var navbar = document.getElementById("navbar");
+    
+        if (window.scrollY > 0) {
+            navbar.classList.add("scrolled");
+            navbar.classList.remove("transparent");
+        } else {
+            navbar.classList.add("transparent");
+            navbar.classList.remove("scrolled");
+        }
+    });
+    
+}
+
 async function main() {
     const store = {
         produ: JSON.parse(localStorage.getItem('produ')) || (await getProducts()),
@@ -208,9 +261,10 @@ async function main() {
     controllerCart(store);
     controllerTotal(store);
     filtrar();
-    printerBackgrounds();
+    printerBackgrounds();    
+    showModal();
+    hiddennav();
 }
-
 main();
 
 
@@ -239,103 +293,7 @@ function printerMenu() {
 }
 //fin funcion de mostrar menú
 
-
-
-
-
-function printBtnsFilterDark() {
-    const btnFilters = document.querySelectorAll(".btn__products .btn__filtros");
-    btnFilters.forEach((btnFilter) => {
-        btnFilter.style.backgroundColor = "var(--bgd-100)";
-        btnFilter.style.color = "var(--textd-100)"
-    });
-}
-function printBtnsFilterLigth() {
-    const btnFilters = document.querySelectorAll(".btn__products .btn__filtros");
-    btnFilters.forEach((btnFilter) => {
-        btnFilter.style.backgroundColor = "var(--bg-100)";
-        btnFilter.style.color = "var(--text-100)"
-    });
-}
-
-function printerImgDark() {
-    const cardsImgs = document.querySelectorAll(".contain__product .img__prod");
-    cardsImgs.forEach((cardImg) => {
-        cardImg.style.backgroundColor = "var(--bgd-200)";
-    })
-}
-function printerImgLight() {
-    const cardsImgs = document.querySelectorAll(".contain__product .img__prod");
-    cardsImgs.forEach((cardImg) => {
-        cardImg.style.backgroundColor = " var(--bg-300)";
-    });
-}
-
-function printPriceDark() {
-    const linePrices = document.querySelectorAll(".precio .precioprod");
-    linePrices.forEach((linePrice) => {
-        linePrice.style.backgroundColor = "var(--textd-100)";
-    });
-}
-
-function printPriceLigth() {
-    const linePrices = document.querySelectorAll(".precio .precioprod");
-    linePrices.forEach((linePrice) => {
-        linePrice.style.backgroundColor = "var(--primary-100)";
-    });
-}
-
-function printerDescriptionDark() {
-    const cardsDescriptions = document.querySelectorAll(".contain__product .precio");
-    cardsDescriptions.forEach((cardDescription) => {
-        cardDescription.style.backgroundColor = "var(--primary-100)";
-        // cardDescription.style.color= "var(--text-100)";
-    });
-}
-function printerDescriptionLight() {
-    const cardsDescriptions = document.querySelectorAll(".contain__product .precio");
-    cardsDescriptions.forEach((cardDescription) => {
-        cardDescription.style.backgroundColor = "var(--bg-100)";
-    });
-}
-
-function printerCartLight() {
-    const iconsCarts = document.querySelectorAll(".iconos__nav .bx-menu")
-    iconsCarts.forEach((iconCart) => {
-        iconCart.style.backgroundColor = "var(--academlo)";
-    });
-}
-function printerCartDark() {
-    const iconsCarts = document.querySelectorAll(".iconos__nav .bx-menu")
-    iconsCarts.forEach((iconCart) => {
-        iconCart.style.backgroundColor = "#FFFFFF";
-    });
-}
-function printerEnlaceDark() {
-    const printEnlace = document.querySelector(".parrafo__a");
-    printEnlace.style.color = "var(--bgd-100)";
-}
-function printerEnlaceLigth() {
-    const printEnlace = document.querySelector(".parrafo__a");
-    printEnlace.style.color = "var(--bg-100)";
-}
-
-
-
-
-function printerRectanguloDark() {
-    const rectangulo = document.querySelector('.muestraropa');
-    rectangulo.style.backgroundColor = "var(--accentd-100)";
-}
-
-function printerRectanguloLigth() {
-    const rectangulo = document.querySelector('.muestraropa');
-    rectangulo.style.backgroundColor = "var(--primary-100)";
-}
-
 //inicio cambio de backgrounds en la pag apartir del change mode
-
-
 function printerBackgrounds() {
 
     const changeThemeHTML = document.querySelector("#changeTheme");
@@ -350,50 +308,24 @@ function printerBackgrounds() {
     changeIconHTML.addEventListener('click', function () {
         const icon = changeIconHTML.querySelector('i');
         if (icon.classList.contains('bxs-moon')) {
-
             icon.classList.remove('bxs-moon');
             icon.classList.add('bxs-sun');
-            icon.style.cursor = "pointer";
-            printBtnsFilterDark();
-            printerCartDark();
-            // printerImgDark();
-            printPriceDark();
-            printerDescriptionDark();
-            printerEnlaceDark();
-            // printerRectanguloDark();
+            icon.style.cursor = "pointer";                  
         } else {
             icon.classList.remove('bxs-sun');
             icon.classList.add('bxs-moon');
-            printBtnsFilterLigth()
-            printerCartLight();
-            // printerImgLight();
-            printPriceLigth();
-            printerDescriptionLight();
-            // printerRectanguloLigth();
-            printerEnlaceLigth();
-
         }
     });
 }
-// //fin cambio de backgrounds en la pag
-// // INICIO DE UN LOADER
+//fin cambio darmode
+// INICIO DE UN LOADER para guardar el darkmode
 window.addEventListener("DOMContentLoaded", function () {
-    //     // Verificar si hay un tema guardado en localStorage
-
     const savedTheme = localStorage.getItem("theme");
-    //     // Aplicar el tema guardado si existe
+        // Aplicar el tema guardado si existe
     if (savedTheme === "dark") {
-        document.body.classList.add("darkmode");
-        printerRectanguloDark();
-        printerImgDark();
-    }else{
-        loader();
-        // printerRectanguloLigth();
-        // printerImgLight();
-    }
-
+        document.body.classList.add("darkmode");        
+    } 
 });
-
 
 window.addEventListener("load", function () {
     loader();
