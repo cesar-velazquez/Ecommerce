@@ -11,7 +11,7 @@ async function getProducts() {
         console.log(error, "esto es un error");
     }
 }
-
+// FIN DEL PROCESO DE OBTENCION DE UNA API CON UNA FUNCIÓN
 function printArticles(produ) {
     html = "";
     produ.forEach(function ({ id, image, name, price, quantity, description, category }) {
@@ -42,18 +42,15 @@ function HandleShowCart() {
     const cart = document.querySelector('.cart');
     const prueba = document.querySelector('.cart__products');
 
-
-    
-    
     faShoppingCart.addEventListener('click', function () {
         cart.classList.toggle('cart__show');
     });
-
-    window.addEventListener('click', function (event) {
-        if (!prueba.contains(event.target) || !cart.contains(event.target)) {
-            menuHtml.classList.add("cart");
-        }
-    });
+// corregir window
+    // window.addEventListener('click', function (event) {
+    //     if (!prueba.contains(event.target) || !cart.contains(event.target)) {
+    //         menuHtml.classList.add("cart");
+    //     }
+    // });
 }
 function filtrar() {
     mixitup(".product__principal", {
@@ -65,8 +62,6 @@ function filtrar() {
         }
     });
 }
-
-
 function loader() {
     setTimeout(function () {
         document
@@ -120,10 +115,11 @@ function addtoCartFromProducts(store) {
     const containProductHTML = document.querySelector(".product__principal");
     containProductHTML.addEventListener('click', function (e) {
         if (e.target.classList.contains("product__btn")) {
-            const id = Number(e.target.id);
+            const id = Number(e.target.id);            
             const productFound = store.produ.find(function (product) {
-                return product.id === id;
+                return product.id === id;                
             });
+            console.log(`addOfProd: `, productFound);
             if (store.cart[productFound.id]) {
                 validateAmountProduct(store, productFound.id);
             } else {
@@ -232,11 +228,11 @@ function printerModal(store, id) {
           </div>
           <div class="modal__inf__precio">
               <h5>$${producto.price}.00</h5>
-              <i class='bx bx-plus-circle'></i>
+              <i class='bx bx-plus-circle' id=${id}></i>            
               <p>Stock: ${producto.quantity}</p>
           </div>
         </div>
-    `;    
+    `;        
     // no borrar esto        
     modalHTML.classList.add("inicio__modal__show");
     const iconClose = modalHTML.querySelector(".bx.bx-comment-x");
@@ -244,47 +240,55 @@ function printerModal(store, id) {
     iconClose.addEventListener("click", () => {
         modalHTML.classList.remove("inicio__modal__show");
     });
-    const prod = store.produ.find(item => item.id === id);
-    // inicia el uso del boton plus circle
+    printerFromModalToCart(store, id);   
+}
+// aun no sirve
+// function addFromModalToCart() {
+//     const containProductHTML = document.querySelector(".product__principal");
+//     containProductHTML.addEventListener('click', function (e) {
+//         if (e.target.classList.contains("bx-plus-circle")) {
+//             const id = Number(e.target.id);
+//             const productFound = store.produ.find(function (product) {
+//                 return product.id === id;
+//             });
+//             if (store.cart[productFound.id]) {
+//                 validateAmountProduct(store, productFound.id);
+//             } else {
+//                 store.cart[productFound.id] = {
+//                     ...productFound,
+//                     amount: 1,
+//                 };
+//             }
+//             localStorage.setItem("cart", JSON.stringify(store.cart));                        
+//         }
+//     });
+// }
+// fin aun sin implementar
+function printerFromModalToCart(store, id) {
+    const producto = store.produ.find(item => item.id === id);    
     const agregarHTML = document.querySelector(".inicio__modal");
     agregarHTML.addEventListener('click', function (e) {
-        if (e.target.classList.contains("bx-plus-circle")) {            
-            console.log(`es:: `, prod.description);           
-            const cartHTML = document.querySelector(".cart__products");
-
-            // prueba            
-            cartHTML.innerHTML = `
-            <div class="cart__product">
-            <div class="cart__product__img">
-                <img class="img__cart" src="${producto.image}" alt="${producto.name}">
-            </div>
-    
-            <div class="cart__product__body">
-                <p>
-                    <b>${producto.name}</b>
-                </p>
-                <p>
-                <small>price:$${producto.price} |  $${producto.amount * producto.price}</small>
-                </p>
-                <p>
-                <b><small>Disponibles: ${producto.quantity}</small></b>
-                </p>
-                <div class="cart__product__opt" id="${producto.id}">
-                <i class='bx bx-minus'></i>
-                <span>${producto.amount}</span>
-                <i class='bx bx-plus'></i>
-                <i class='bx bxs-trash'></i>
-                </div>
-            </div>
-        </div>        
-        `;        
+        if (e.target.classList.contains("bx-plus-circle")) {                              
+            const id = Number(e.target.id);
+            
+            const prodFound = store.produ.find(function (product) {
+                return product.id === id;                
+            });
+            if (store.cart[prodFound.id]){
+                validateAmountProduct(store, prodFound.id);
+            }else{
+                store.cart[prodFound.id] = {
+                    ...prodFound,
+                    amount: 1,
+                };
+            }
+            localStorage.setItem("cart", JSON.stringify(store.cart));
+            printProductsInCart(store);
+            printTotal(store);
+            console.log(`addofModal: `, prodFound);        
             // fin prueba
-
-
-
-
         }
-    })
+    });
 }
 
 function hiddennav() {
@@ -324,7 +328,6 @@ main();
 
 
 // DENTRO DEL MAIN ESTÁ TAMBIEN LA HERRAMIENTA PARA FILTRAR 
-// FIN DEL PROCESO DE OBTENCION DE UNA API CON UNA FUNCIÓN
 // inicio de menu bar
 // function ContolMenu() {
 function printerMenu() {

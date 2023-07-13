@@ -52,6 +52,7 @@
     /* tamaños */
     --h-header: 50px;
     /* fin tamaños */
+    --heigth-cart: 60px;
     /* Modals */
     --z-modalproduct: 4000;
 }
@@ -138,7 +139,8 @@ body.darkmode {
         border: none;
         font-size: 14px;
     }
-    .parrafo__filtro{
+
+    .parrafo__filtro {
         color: var(--bg-100);
         font-size: 12px;
     }
@@ -184,11 +186,16 @@ body.darkmode {
     }
 
     .cart__products {
-        background-color: var(--bgd-100);
+        background: linear-gradient(90deg, rgba(238, 29, 80, 1) 2%, rgba(0, 0, 0, 1) 4%, rgba(0, 0, 0, 1) 94%, rgba(238, 29, 82, 1) 98%);
+    }
+
+    .cart {
+        background: rgb(238, 29, 80);
+        background: linear-gradient(90deg, rgba(238, 29, 80, 1) 2%, rgba(0, 0, 0, 1) 4%, rgba(0, 0, 0, 1) 94%, rgba(238, 29, 82, 1) 98%);
     }
 
     .cart__total {
-        background-color: var(--bg-100);
+        background: radial-gradient(circle, rgb(255 255 255) 0%, rgb(244 241 253) 16%, rgb(221 215 228) 30%, rgb(237 230 237) 41%, rgb(255 255 255) 56%, rgb(240 226 233) 68%, rgb(246 250 251) 82%, rgb(115 214 193) 100%);
         color: var(--bgd-100);
     }
 
@@ -242,7 +249,7 @@ body.darkmode {
 .cart {
     background-color: #000;
     position: fixed;
-    top: var(--h-header);
+    top: var(--heigth-cart);
     right: 0;
     max-width: 50.5%;
     height: calc(100% - var(--h-header));
@@ -558,7 +565,7 @@ body.darkmode {
     box-shadow: var(--shadow-btn);
 }
 
-.parrafo__filtro {    
+.parrafo__filtro {
     font-weight: bold;
     color: var(--text-200);
 }
@@ -648,9 +655,9 @@ body.darkmode {
 /* diseño del modal */
 .inicio__modal {
     background-color: #000000d5;
-	position: fixed;
-	top: 0;
-	width: 100%;
+    position: fixed;
+    top: 0;
+    width: 100%;
     min-height: 100vh;
     display: grid;
     place-items: center;
@@ -682,23 +689,27 @@ body.darkmode {
 .bx-comment-x {
     font-weight: bold;
     position: absolute;
-    right: 1rem;
-    top: 1rem;
+    left: 1rem;
+    top: .3rem;
     cursor: pointer;
 }
-.modal__trash{
+
+.modal__trash {
     font-size: 5rem;
     color: #00FFFF;
 }
-.modal__img{    
+
+.modal__img {
     width: 90%;
     height: 70%;
 }
-.img__modal{
+
+.img__modal {
     width: 100%;
-    height: 95%;        
+    height: 95%;
 }
-.modal__desc{
+
+.modal__desc {
     margin-top: -5%;
     display: flex;
     justify-content: center;
@@ -706,19 +717,22 @@ body.darkmode {
     flex-direction: column;
     height: auto;
 }
-.titulo__modal{
+
+.titulo__modal {
     font-family: var(--titulo);
     font-weight: bold;
     font-size: 15px;
     color: var(--bgd-100);
 }
-.parrafo__modal{
+
+.parrafo__modal {
     font-family: var(--subtitulo);
     font-weight: bold;
     font-size: 12px;
     color: var(--text-200);
 }
-.modal__inf__precio{
+
+.modal__inf__precio {
     background-color: var(--primary-300);
     border-radius: 2rem;
     display: flex;
@@ -728,13 +742,15 @@ body.darkmode {
     height: 25px;
     width: 100%;
 }
-.bx-plus-circle{
+
+.bx-plus-circle {
     font-size: 1.4rem;
     background-color: black;
     border-radius: 50%;
     color: var(--primary-300);
     cursor: pointer;
 }
+
 /* fin diseño modal */
 
 
