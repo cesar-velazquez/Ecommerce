@@ -1,5 +1,5 @@
 // INICIO DEL PROCESO DE OBTENCION DE UNA API CON UNA FUNCIÓN
-const BASE_URL = "https://ecommercebackend.fundamentos-29.repl.co";
+const BASE_URL = "https://services-academlo-shopping.onrender.com/";
 
 async function getProducts() {
     try {
@@ -194,27 +194,6 @@ function controllerTotal(store) {
     })
 }
 
-function printerModal() {    
-    let modal = "";
-    modal +=`
-    <div class="content__modal ">
-        <div class="modal__info">
-            <i class='bx bx-comment-x' ></i>
-            <div class="modal__img">
-            <h1>dlfkjglfkdjgklfdjglkdf</h1>
-                <img src="/src/img/loader.jpg" alt="">
-            </div>
-            </div>
-        </div>
-    `;  
-    document.querySelector(".inicio__modal").innerHTML = modal;
-    // const inicioModal = document.querySelector('.inicio__modal');
-    // const cerrarModal = document.querySelector('.bx-comment-x');
-
-    // cerrarModal.addEventListener('click', function () {
-    //     inicioModal.classList.toggle('inicio__modal__show');
-    // });
-}
 
 
 function showModal(store) {
@@ -224,18 +203,118 @@ function showModal(store) {
             const id = Number(e.target.id);
             console.log(id);
             if (id > 0) {
-                printerModal(store);
-                const inicioModal = document.querySelector('.inicio__modal');
-                inicioModal.classList.toggle('inicio__modal__show');
+                // printerModal(store, id); 
+                pruebaID(store, id);
             }
         }
     });
 }
+// const { amount, id, image, name, price, quantity } = producto[key];
+function pruebaID(store, id) {
+    const producto = store.produ.find(item => item.id === id);
+    console.log(`es: `, producto);
+    const modalHTML = document.querySelector(".inicio__modal");
+
+    modalHTML.innerHTML = `
+        <div class="content__modal">
+          <div class="modal__trash">
+              <i class='bx bx-comment-x modal__trash'></i>
+          </div>
+          <div class="modal__img">              
+              <img class="${producto.image}" src="" alt="">
+          </div>
+          <h3 class="titulo__modal">${producto.name}</h3>
+          <p class="parrafo__modal">${producto.description}</p>
+          <div class="modal__inf__precio">
+              <h5>$${producto.price}.00</h5>
+              <i class='bx bx-plus'></i>
+              <h7>${producto.stock}</h7>
+          </div>
+        </div>
+    `;
+
+    modalHTML.classList.add("inicio__modal__show");
+    const iconClose = modalHTML.querySelector(".bx.bx-comment-x");
+
+    iconClose.addEventListener("click", () => {
+        modalHTML.classList.remove("inicio__modal__show");
+    });
+}
+
+
+
+// const modalHTML = document.querySelector(".inicio__modal");      
+//     modalHTML.innerHTML = `
+//       <div class="content__modal ">
+//           <div class="modal__trash">
+//               <i class='bx bx-comment-x modal__trash' ></i>
+//           </div>
+//                 <div class="modal__img">              
+//                   <img class="img__modal" src="" alt="">
+//                 </div>
+
+//                 <h3 class="titulo__modal">lkjlk</h3>
+//                 <p class="parrafo__modal">sldk</p>
+//                 <div class="modal__inf__precio">
+//                 <h5>$precio.00</h5>
+//                 <i class='bx bx-plus'></i>
+//                 <h7>stock</h7>
+//               </div>
+//           </div>          
+//     `;
+//     // }
+//     document.querySelector(".inicio__modal").innerHTML = html;
+//     modalHTML.classList.add("inicio__modal__show");
+//     const iconClose = modalHTML.querySelector(".bx.bx-comment-x");
+
+//     iconClose.addEventListener("click", () => {
+//         modalHTML.classList.remove("inicio__modal__show");
+//     });
+
+
+
+// function printerModal(store, id) {
+//     // for (const key in store.cart) {
+//     const modalHTML = document.querySelector(".inicio__modal");      
+//     modalHTML.innerHTML = `
+//       <div class="content__modal ">
+//           <div class="modal__trash">
+//               <i class='bx bx-comment-x modal__trash' ></i>
+//           </div>
+//                 <div class="modal__img">              
+//                   <img class="img__modal" src="/src/img/loader.jpg" alt="">
+//                 </div>
+
+//                 <h3 class="titulo__modal">titulo</h3>
+//                 <p class="parrafo__modal">sldk</p>
+//                 <div class="modal__inf__precio">
+//                 <h5>$precio.00</h5>
+//                 <i class='bx bx-plus'></i>
+//                 <h7>stock</h7>
+//               </div>
+//           </div>          
+//     `;
+//     // }
+//     document.querySelector(".inicio__modal").innerHTML = html;
+//     modalHTML.classList.add("inicio__modal__show");
+//     const iconClose = modalHTML.querySelector(".bx.bx-comment-x");
+
+//     iconClose.addEventListener("click", () => {
+//         modalHTML.classList.remove("inicio__modal__show");
+//     });
+// }
+
+
+
+
+
+
+
 
 function hiddennav() {
     window.addEventListener("scroll", function () {
         var navbar = document.getElementById("navbar");
-    
+
         if (window.scrollY > 0) {
             navbar.classList.add("scrolled");
             navbar.classList.remove("transparent");
@@ -244,7 +323,7 @@ function hiddennav() {
             navbar.classList.remove("scrolled");
         }
     });
-    
+
 }
 
 async function main() {
@@ -261,9 +340,10 @@ async function main() {
     controllerCart(store);
     controllerTotal(store);
     filtrar();
-    printerBackgrounds();    
-    showModal();
+    printerBackgrounds();
     hiddennav();
+    showModal(store);
+    // pruebaID(store, 1); 
 }
 main();
 
@@ -310,7 +390,7 @@ function printerBackgrounds() {
         if (icon.classList.contains('bxs-moon')) {
             icon.classList.remove('bxs-moon');
             icon.classList.add('bxs-sun');
-            icon.style.cursor = "pointer";                  
+            icon.style.cursor = "pointer";
         } else {
             icon.classList.remove('bxs-sun');
             icon.classList.add('bxs-moon');
@@ -320,10 +400,10 @@ function printerBackgrounds() {
 //fin cambio darmode
 // INICIO DE UN LOADER para guardar el darkmode
 window.addEventListener("DOMContentLoaded", function () {
-    const savedTheme = localStorage.getItem("theme");        
+    const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark") {
-        document.body.classList.add("darkmode");        
-    } 
+        document.body.classList.add("darkmode");
+    }
 });
 
 window.addEventListener("load", function () {
