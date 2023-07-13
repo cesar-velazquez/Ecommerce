@@ -24,7 +24,7 @@ function printArticles(produ) {
                 <p class="precioprod">$${price}.00 
                 <span class="noresaltar">Stock: ${quantity}</span>
                 ${quantity
-                ? `<button class='bx bx-cart-add  product__btn' id=${id}>Add</button>`
+                ? `<button class='bx bx-cart-add  product__btn' id=${id}></button>`                
                 : `<div class="div__sold"><p class="sold__out">Sold Out</p></div>`
             }
                 </p>                                                                        
@@ -40,8 +40,19 @@ function printArticles(produ) {
 function HandleShowCart() {
     const faShoppingCart = document.querySelector('.fa-shopping-cart');
     const cart = document.querySelector('.cart');
+    const prueba = document.querySelector('.cart__products');
+
+
+    
+    
     faShoppingCart.addEventListener('click', function () {
         cart.classList.toggle('cart__show');
+    });
+
+    window.addEventListener('click', function (event) {
+        if (!prueba.contains(event.target) || !cart.contains(event.target)) {
+            menuHtml.classList.add("cart");
+        }
     });
 }
 function filtrar() {
@@ -105,7 +116,6 @@ function validateAmountProduct(store, id) {
         store.cart[id].amount++;
     }
 }
-
 function addtoCartFromProducts(store) {
     const containProductHTML = document.querySelector(".product__principal");
     containProductHTML.addEventListener('click', function (e) {
@@ -193,26 +203,19 @@ function controllerTotal(store) {
         printTotal(store);
     })
 }
-
-
-
 function showModal(store) {
     const containProductHTML = document.querySelector(".product__principal");
     containProductHTML.addEventListener('click', function (e) {
         if (e.target.classList.contains("reseña")) {
-            const id = Number(e.target.id);
-            console.log(id);
-            if (id > 0) {
-                // printerModal(store, id); 
-                pruebaID(store, id);
+            const id = Number(e.target.id);            
+            if (id > 0) {                
+                printerModal(store, id);
             }
         }
     });
 }
-// const { amount, id, image, name, price, quantity } = producto[key];
-function pruebaID(store, id) {
-    const producto = store.produ.find(item => item.id === id);
-    console.log(`es: `, producto);
+function printerModal(store, id) {
+    const producto = store.produ.find(item => item.id === id);    
     const modalHTML = document.querySelector(".inicio__modal");
 
     modalHTML.innerHTML = `
@@ -229,89 +232,60 @@ function pruebaID(store, id) {
           </div>
           <div class="modal__inf__precio">
               <h5>$${producto.price}.00</h5>
-              <i class='bx bx-plus'></i>
+              <i class='bx bx-plus-circle'></i>
               <p>Stock: ${producto.quantity}</p>
           </div>
         </div>
-    `;
-
+    `;    
+    // no borrar esto        
     modalHTML.classList.add("inicio__modal__show");
     const iconClose = modalHTML.querySelector(".bx.bx-comment-x");
 
     iconClose.addEventListener("click", () => {
         modalHTML.classList.remove("inicio__modal__show");
     });
+    const prod = store.produ.find(item => item.id === id);
+    // inicia el uso del boton plus circle
+    const agregarHTML = document.querySelector(".inicio__modal");
+    agregarHTML.addEventListener('click', function (e) {
+        if (e.target.classList.contains("bx-plus-circle")) {            
+            console.log(`es:: `, prod.description);           
+            const cartHTML = document.querySelector(".cart__products");
+
+            // prueba            
+            cartHTML.innerHTML = `
+            <div class="cart__product">
+            <div class="cart__product__img">
+                <img class="img__cart" src="${producto.image}" alt="${producto.name}">
+            </div>
+    
+            <div class="cart__product__body">
+                <p>
+                    <b>${producto.name}</b>
+                </p>
+                <p>
+                <small>price:$${producto.price} |  $${producto.amount * producto.price}</small>
+                </p>
+                <p>
+                <b><small>Disponibles: ${producto.quantity}</small></b>
+                </p>
+                <div class="cart__product__opt" id="${producto.id}">
+                <i class='bx bx-minus'></i>
+                <span>${producto.amount}</span>
+                <i class='bx bx-plus'></i>
+                <i class='bx bxs-trash'></i>
+                </div>
+            </div>
+        </div>        
+        `;        
+            // fin prueba
+
+
+
+
+        }
+    })
 }
-
-
-
-// const modalHTML = document.querySelector(".inicio__modal");      
-//     modalHTML.innerHTML = `
-//       <div class="content__modal ">
-//           <div class="modal__trash">
-//               <i class='bx bx-comment-x modal__trash' ></i>
-//           </div>
-//                 <div class="modal__img">              
-//                   <img class="img__modal" src="" alt="">
-//                 </div>
-
-//                 <h3 class="titulo__modal">lkjlk</h3>
-//                 <p class="parrafo__modal">sldk</p>
-//                 <div class="modal__inf__precio">
-//                 <h5>$precio.00</h5>
-//                 <i class='bx bx-plus'></i>
-//                 <h7>stock</h7>
-//               </div>
-//           </div>          
-//     `;
-//     // }
-//     document.querySelector(".inicio__modal").innerHTML = html;
-//     modalHTML.classList.add("inicio__modal__show");
-//     const iconClose = modalHTML.querySelector(".bx.bx-comment-x");
-
-//     iconClose.addEventListener("click", () => {
-//         modalHTML.classList.remove("inicio__modal__show");
-//     });
-
-
-
-// function printerModal(store, id) {
-//     // for (const key in store.cart) {
-//     const modalHTML = document.querySelector(".inicio__modal");      
-//     modalHTML.innerHTML = `
-//       <div class="content__modal ">
-//           <div class="modal__trash">
-//               <i class='bx bx-comment-x modal__trash' ></i>
-//           </div>
-//                 <div class="modal__img">              
-//                   <img class="img__modal" src="/src/img/loader.jpg" alt="">
-//                 </div>
-
-//                 <h3 class="titulo__modal">titulo</h3>
-//                 <p class="parrafo__modal">sldk</p>
-//                 <div class="modal__inf__precio">
-//                 <h5>$precio.00</h5>
-//                 <i class='bx bx-plus'></i>
-//                 <h7>stock</h7>
-//               </div>
-//           </div>          
-//     `;
-//     // }
-//     document.querySelector(".inicio__modal").innerHTML = html;
-//     modalHTML.classList.add("inicio__modal__show");
-//     const iconClose = modalHTML.querySelector(".bx.bx-comment-x");
-
-//     iconClose.addEventListener("click", () => {
-//         modalHTML.classList.remove("inicio__modal__show");
-//     });
-// }
-
-
-
-
-
-
-
 
 function hiddennav() {
     window.addEventListener("scroll", function () {
@@ -345,7 +319,6 @@ async function main() {
     printerBackgrounds();
     hiddennav();
     showModal(store);
-    // pruebaID(store, 1); 
 }
 main();
 
@@ -367,6 +340,7 @@ function printerMenu() {
     links.forEach((link) => {
         link.addEventListener("click", controllerMenu);
     });
+
     window.addEventListener('click', function (event) {
         if (!menuHtml.contains(event.target) && !iconmenuHTML.contains(event.target)) {
             menuHtml.classList.remove("menu__show");

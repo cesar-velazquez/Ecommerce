@@ -112,6 +112,9 @@ body {
         content: "\ef30";
         font-size: 1.9rem;
         color: var(--primary-100);
+        cursor: pointer;
+        background-color: #ffffff;
+        box-shadow: var(--shadow-boton);
     }
 
     transition: background-color 0.8s,
@@ -555,8 +558,7 @@ body.darkmode {
     box-shadow: var(--shadow-btn);
 }
 
-.parrafo__filtro {
-    font-family: var(--parrafo);
+.parrafo__filtro {    
     font-weight: bold;
     color: var(--text-200);
 }
@@ -670,6 +672,11 @@ body.darkmode {
     width: 300px;
     height: 460px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .bx-comment-x {
@@ -719,12 +726,13 @@ body.darkmode {
     align-items: center;
     padding: 1rem;
     height: 25px;
+    width: 100%;
 }
-.bx-plus{
+.bx-plus-circle{
     font-size: 1.4rem;
     background-color: black;
     border-radius: 50%;
-    color: white;
+    color: var(--primary-300);
     cursor: pointer;
 }
 /* fin diseño modal */
@@ -990,16 +998,16 @@ body.darkmode {
         place-items: center;
         grid-template-areas:
             "item1 item2 item3 item4";
-        padding: 1rem 7rem;
+        padding: 1rem 1rem;
         margin: 10% 10%;
-        gap: 0px;
+        gap: 10px;
     }
 
     .btn__filtros {
         width: 112px;
         min-height: 50px;
         font-weight: bold;
-        font-size: 14px;
+        font-size: 13px;
         border: none;
         display: flex;
         justify-content: center;
