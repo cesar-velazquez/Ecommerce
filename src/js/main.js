@@ -221,14 +221,16 @@ function pruebaID(store, id) {
               <i class='bx bx-comment-x modal__trash'></i>
           </div>
           <div class="modal__img">              
-              <img class="${producto.image}" src="" alt="">
+              <img class="img__modal" src="${producto.image}" alt="">
           </div>
+          <div class="modal__desc">
           <h3 class="titulo__modal">${producto.name}</h3>
           <p class="parrafo__modal">${producto.description}</p>
+          </div>
           <div class="modal__inf__precio">
               <h5>$${producto.price}.00</h5>
               <i class='bx bx-plus'></i>
-              <h7>${producto.stock}</h7>
+              <p>Stock: ${producto.quantity}</p>
           </div>
         </div>
     `;
