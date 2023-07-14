@@ -190,7 +190,7 @@ function controllerTotal(store) {
     document.querySelector(".btnbuy").addEventListener('click', function () {
         const response = confirm('Proceder a hacer el pago');
         if (!response) return;
-
+        location.reload();
         const newArray = [];
         store.produ.forEach((product) => {
             if (store.cart[product.id]) {
@@ -200,14 +200,14 @@ function controllerTotal(store) {
             } else {
                 newArray.push(product);
             }
-        });        
+        });                
         store.produ = newArray;
         store.cart = {};
         localStorage.setItem('produ', JSON.stringify(store.produ));
         localStorage.setItem("cart", JSON.stringify(store.cart));
         printArticles(store.produ);
         printProductsInCart(store);
-        printTotal(store);
+        printTotal(store);        
     })
 }
 function showModal(store) {
@@ -255,7 +255,7 @@ function printerModal(store, id) {
     iconClose.addEventListener("click", () => {
         modalHTML.classList.remove("inicio__modal__show");
     });
-    printerFromModalToCart(store, id);    //Fun 
+    printerFromModalToCart(store, id);    //Fun     
 }
 
 function printerFromModalToCart(store) {       
@@ -277,7 +277,7 @@ function printerFromModalToCart(store) {
             }
             localStorage.setItem("cart", JSON.stringify(store.cart));
             printProductsInCart(store);
-            printTotal(store);                    
+            printTotal(store);                                         
             // fin prueba
         }
     });
