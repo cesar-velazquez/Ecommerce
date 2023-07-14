@@ -20,7 +20,7 @@
     --accent-200: #916400;
     --text-100: #333333;
     --text-200: #5c5c5c;
-    --bg-100: #F7F7F7;
+    --bg-100: #ffffff;
     --bg-200: #ededed;
     --bg-300: #c4c4c4;
     /* fin ejemplos */
@@ -93,11 +93,6 @@ body {
         font-size: 1.3rem;
         cursor: pointer;
     }
-
-
-
-
-
 
     .bx-cart-alt::before {
         color: var(--bgd-100);
@@ -216,7 +211,35 @@ body.darkmode {
         border-style: solid;
         box-shadow: var(--shadow-boton);
     }
-
+    .content__modal{
+        background-color: var(--bgd-100);
+        border-style: groove;
+        border-color: aquamarine;
+    }
+    .titulo__modal {
+        color: var(--bg-100);
+        margin-top: -5%;
+    }
+    .parrafo__modal{
+        color: var(--bg-300);
+    }
+    .bx-comment-x{
+        color:var(--accentd-100);
+    }
+    .modal__inf__precio{
+        background-color: var(--bgd-100);
+        border: 2px solid var(--bg-100);
+    }
+    .bx-plus-circle{
+        color: var(--primary-100);        
+    }
+    .div__sold__modal{
+        background-color: var(--primary-100);
+        border-radius: 2rem;
+        font-size: 15px;
+        padding: .3rem;
+        
+    }
 }
 
 /* fin darkmode */

@@ -8,7 +8,7 @@ async function getProducts() {
         localStorage.setItem('produ', JSON.stringify(response));
         return response;
     } catch (error) {
-        console.log(error, "esto es un error");
+        console.log(error, "esto es un error");        
     }
 }
 // FIN DEL PROCESO DE OBTENCION DE UNA API CON UNA FUNCIÓN
@@ -66,8 +66,7 @@ function loader() {
     setTimeout(function () {
         document
             .querySelector(".content__loader")
-            .classList.add("content__loader__hidden");
-        console.log("se quita el loader");
+            .classList.add("content__loader__hidden");        
     }, 1000);
 }
 function hiddennav() {
@@ -132,8 +131,7 @@ function addtoCartFromProducts(store) {
             const id = Number(e.target.id);            
             const productFound = store.produ.find(function (product) {
                 return product.id === id;                
-            });
-            console.log(`addOfProd: `, productFound);
+            });            
             if (store.cart[productFound.id]) {
                 validateAmountProduct(store, productFound.id);
             } else {
@@ -202,8 +200,7 @@ function controllerTotal(store) {
             } else {
                 newArray.push(product);
             }
-        });
-        console.log(newArray);
+        });        
         store.produ = newArray;
         store.cart = {};
         localStorage.setItem('produ', JSON.stringify(store.produ));
@@ -226,8 +223,7 @@ function showModal(store) {
 }
 function printerModal(store, id) {
     const producto = store.produ.find(item => item.id === id);    
-    const modalHTML = document.querySelector(".inicio__modal");
-    console.log(`es producto: `, producto);
+    const modalHTML = document.querySelector(".inicio__modal");    
 
     modalHTML.innerHTML = `
         <div class="content__modal">
@@ -245,7 +241,7 @@ function printerModal(store, id) {
               <h5>$${producto.price}.00</h5>
               ${producto.quantity
                 ?`<i class='bx bx-plus-circle' id=${id}></i>`
-                :`<div class="div__sold"><p>Sold Out</p></div>`
+                :`<div class="div__sold__modal"><p>Sold Out</p></div>`
               }
                           
               <p>Stock: ${producto.quantity}</p>
@@ -262,9 +258,8 @@ function printerModal(store, id) {
     printerFromModalToCart(store, id);    //Fun 
 }
 
-function printerFromModalToCart(store) {
-    // const producto = store.produ.find(item => item.id === id);    
-    const agregarHTML = document.querySelector(".inicio__modal");
+function printerFromModalToCart(store) {       
+    const agregarHTML = document.querySelector(".modal__inf__precio");
     agregarHTML.addEventListener('click', function (e) {
         if (e.target.classList.contains("bx-plus-circle")) {                              
             const id = Number(e.target.id);
@@ -273,8 +268,7 @@ function printerFromModalToCart(store) {
                 return product.id === id;                
             });
             if (store.cart[prodFound.id]){
-                validateAmountProduct(store, prodFound.id);
-                console.log(`essss:`, prodFound);
+                validateAmountProduct(store, prodFound.id);                
             }else{
                 store.cart[prodFound.id] = {
                     ...prodFound,
