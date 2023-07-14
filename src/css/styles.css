@@ -815,7 +815,7 @@ body.darkmode {
     font-family: var(--subtitulo);
     font-weight: bold;
     text-align: center;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 
