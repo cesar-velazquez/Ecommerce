@@ -228,13 +228,7 @@ body.darkmode {
 }
 
 /* fin darkmode */
-#inicioHome{
-    background-color:var(--bgd-100);
-    color: var(--primary-100);
-}
-#inicioprod{
-    background-color: #000;
-}
+
 .fa,
 .fas {
     font-weight: 900;
