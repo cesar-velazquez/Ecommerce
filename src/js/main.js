@@ -213,6 +213,7 @@ function showModal(store) {
 function printerModal(store, id) {
     const producto = store.produ.find(item => item.id === id);    
     const modalHTML = document.querySelector(".inicio__modal");
+    console.log(`es producto: `, producto);
 
     modalHTML.innerHTML = `
         <div class="content__modal">
@@ -228,7 +229,11 @@ function printerModal(store, id) {
           </div>
           <div class="modal__inf__precio">
               <h5>$${producto.price}.00</h5>
-              <i class='bx bx-plus-circle' id=${id}></i>            
+              ${producto.quantity
+                ?`<i class='bx bx-plus-circle' id=${id}></i>`
+                :`<div class="div__sold"><p>Sold Out</p></div>`
+              }
+                          
               <p>Stock: ${producto.quantity}</p>
           </div>
         </div>
@@ -240,32 +245,11 @@ function printerModal(store, id) {
     iconClose.addEventListener("click", () => {
         modalHTML.classList.remove("inicio__modal__show");
     });
-    printerFromModalToCart(store, id);   
+    printerFromModalToCart(store, id);    //Fun 
 }
-// aun no sirve
-// function addFromModalToCart() {
-//     const containProductHTML = document.querySelector(".product__principal");
-//     containProductHTML.addEventListener('click', function (e) {
-//         if (e.target.classList.contains("bx-plus-circle")) {
-//             const id = Number(e.target.id);
-//             const productFound = store.produ.find(function (product) {
-//                 return product.id === id;
-//             });
-//             if (store.cart[productFound.id]) {
-//                 validateAmountProduct(store, productFound.id);
-//             } else {
-//                 store.cart[productFound.id] = {
-//                     ...productFound,
-//                     amount: 1,
-//                 };
-//             }
-//             localStorage.setItem("cart", JSON.stringify(store.cart));                        
-//         }
-//     });
-// }
-// fin aun sin implementar
-function printerFromModalToCart(store, id) {
-    const producto = store.produ.find(item => item.id === id);    
+
+function printerFromModalToCart(store) {
+    // const producto = store.produ.find(item => item.id === id);    
     const agregarHTML = document.querySelector(".inicio__modal");
     agregarHTML.addEventListener('click', function (e) {
         if (e.target.classList.contains("bx-plus-circle")) {                              
@@ -276,6 +260,7 @@ function printerFromModalToCart(store, id) {
             });
             if (store.cart[prodFound.id]){
                 validateAmountProduct(store, prodFound.id);
+                console.log(`essss:`, prodFound);
             }else{
                 store.cart[prodFound.id] = {
                     ...prodFound,
@@ -284,8 +269,7 @@ function printerFromModalToCart(store, id) {
             }
             localStorage.setItem("cart", JSON.stringify(store.cart));
             printProductsInCart(store);
-            printTotal(store);
-            console.log(`addofModal: `, prodFound);        
+            printTotal(store);                    
             // fin prueba
         }
     });
