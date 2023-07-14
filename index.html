@@ -18,13 +18,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto&display=swap"
         rel="stylesheet">
     <!-- final fuentes -->
-    <!-- <a target="_blank" href="https://icons8.com/icon/65006/tienda-en-l%C3%ADnea">Tienda en línea</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> -->
     <link rel="icon" type="image/svg+xml" href="src/img/loaderAcad.png">
 <!-- favicon -->
 
     <!-- estilo para el darkmode -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
     <link rel="stylesheet" href="src/css/styles.css">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"
         integrity="sha512-nKZDK+ztK6Ug+2B6DZx+QtgeyAmo9YThZob8O3xgjqhw2IVQdAITFasl/jqbyDwclMkLXFOZRiytnUrXk/PM6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>        
@@ -32,11 +33,11 @@
     <!-- fin estilo para el darkmode -->
     <!-- estilo para otros iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/remixicon.css">
-    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/remixicon.css">
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script> -->
     <!-- fin libreria -->
 
-    <link rel="stylesheet" href="src/styles.css">
+    <!-- <link rel="stylesheet" href="src/styles.css"> -->
     <title>Academlo Store</title>
 </head>
 
@@ -45,7 +46,8 @@
     <header class="header__Section">
         <nav class="navbar__section hidden scrolled" id="navbar">
             <div class="primeraMitad">
-                <svg class="svg__mostrar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.92 56.48"
+                <a class="svg__mostrar" href="#home">
+                    <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.92 56.48"
                     class="nav_logo-icon">
                     <title>Academlo Logo</title>
                     <g>
@@ -56,13 +58,14 @@
                         </g>
                     </g>
                 </svg>
+                </a>
                 <a href="index.html" class="inicio">Store</a>
                 <ul class="menu_des">
                     <li>
-                        <a href="#home" class="inicio">Home</a>
+                        <a href="#home" id="inicioHome" class="inicio">Home</a>
                     </li>
                     <li>
-                        <a href="#prod" class="inicio">Products</a>
+                        <a href="#prod" id="inicioprod" class="inicio">Products</a>
                     </li>
                     </ul>
             </div>

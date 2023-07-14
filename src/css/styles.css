@@ -180,11 +180,12 @@ body.darkmode {
     }
 
     .menu__show {
-        background-color: var(--academlo);
+        background-color: var(--bgd-100);
     }
 
     .menu__show>li .inicio {
         color: var(--bg-100);
+        height: calc(100% - var(--h-header));
     }
 
     .bx-menu::before {
@@ -224,22 +225,16 @@ body.darkmode {
         font-size: 15px;
         padding: .3rem;        
     }
-    *.scroll::-webkit-scrollbar {
-        width: 4rem;
-    }
-
-    *.scroll::-webkit-scrollbar-track {
-        background: beige;
-    }
-
-    *.scroll::-webkit-scrollbar-thumb {
-        background-color:palegreen;
-        border-radius: 1rem;
-    }
 }
 
 /* fin darkmode */
-
+#inicioHome{
+    background-color:var(--bgd-100);
+    color: var(--primary-100);
+}
+#inicioprod{
+    background-color: #000;
+}
 .fa,
 .fas {
     font-weight: 900;
