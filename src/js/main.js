@@ -70,6 +70,20 @@ function loader() {
         console.log("se quita el loader");
     }, 1000);
 }
+function hiddennav() {
+    window.addEventListener("scroll", function () {
+        var navbar = document.getElementById("navbar");
+
+        if (window.scrollY > 0) {
+            navbar.classList.add("scrolled");
+            navbar.classList.remove("transparent");
+        } else {
+            navbar.classList.add("transparent");
+            navbar.classList.remove("scrolled");
+        }
+    });
+
+}
 function printProductsInCart(store) {
     let html = "";
 
@@ -275,20 +289,7 @@ function printerFromModalToCart(store) {
     });
 }
 
-function hiddennav() {
-    window.addEventListener("scroll", function () {
-        var navbar = document.getElementById("navbar");
 
-        if (window.scrollY > 0) {
-            navbar.classList.add("scrolled");
-            navbar.classList.remove("transparent");
-        } else {
-            navbar.classList.add("transparent");
-            navbar.classList.remove("scrolled");
-        }
-    });
-
-}
 
 async function main() {
     const store = {
