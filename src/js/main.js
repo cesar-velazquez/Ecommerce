@@ -73,7 +73,7 @@ function hiddennav() {
     window.addEventListener("scroll", function () {
         var navbar = document.getElementById("navbar");
 
-        if (window.scrollY > 0) {
+        if (window.scrollY < 1) {
             navbar.classList.add("scrolled");
             navbar.classList.remove("transparent");
         } else {
@@ -282,8 +282,6 @@ function printerFromModalToCart(store) {
         }
     });
 }
-
-
 
 async function main() {
     const store = {

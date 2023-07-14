@@ -10,6 +10,7 @@
     --bgd-100: #000000;
     --bgd-200: #080f1d;
     --bgd-300: #353535;
+    --iconTrashModal:#7fffd4;
     /* fin ejemplos */
 
     /* ejemplos background claros*/
@@ -55,6 +56,7 @@
     --heigth-cart: 60px;
     /* Modals */
     --z-modalproduct: 4000;
+    --z-header-nav: 1000;
 }
 
 * {
@@ -68,7 +70,6 @@
         width: 1.5rem;
     }
 
-
     .scroll::-webkit-scrollbar-track {
         background: var(--primary-100);
     }
@@ -76,7 +77,6 @@
     .scroll::-webkit-scrollbar-thumb {
         background-color: var(--bgd-100);
         border-radius: 1rem;
-
     }
 }
 
@@ -155,31 +155,16 @@ body.darkmode {
     .footer__ul__social {
         background-color: var(--text-200);
     }
-
     .parrafo__a {
         color: var(--bgd-100);
     }
-
-    .navbar__section {
-        background-color: var(--bgd-100);
+    .transparent{
+        background-color: #000;
+        box-shadow: var(--shadow-boton);
     }
-
-    .hidden {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        height: 60px;
-        transition: background-color 1s;
+    .scrolled{
+        background-color:transparent;        
     }
-
-    .hidden.transparent {
-        background-color: transparent;
-    }
-
-    .navbar.scrolled {
-        background-color: var(--bg-100);
-    }
-
     .cart__products {
         background: linear-gradient(90deg, rgba(238, 29, 80, 1) 2%, rgba(0, 0, 0, 1) 4%, rgba(0, 0, 0, 1) 94%, rgba(238, 29, 82, 1) 98%);
     }
@@ -214,7 +199,7 @@ body.darkmode {
     .content__modal{
         background-color: var(--bgd-100);
         border-style: groove;
-        border-color: aquamarine;
+        border-color: var(--iconTrashModal);
     }
     .titulo__modal {
         color: var(--bg-100);
@@ -237,8 +222,19 @@ body.darkmode {
         background-color: var(--primary-100);
         border-radius: 2rem;
         font-size: 15px;
-        padding: .3rem;
-        
+        padding: .3rem;        
+    }
+    *.scroll::-webkit-scrollbar {
+        width: 4rem;
+    }
+
+    *.scroll::-webkit-scrollbar-track {
+        background: beige;
+    }
+
+    *.scroll::-webkit-scrollbar-thumb {
+        background-color:palegreen;
+        border-radius: 1rem;
     }
 }
 
@@ -370,18 +366,18 @@ body.darkmode {
     font-weight: bold;
 }
 
-/* .header__Section {
-    position: sticky; 
-
-} */
-
+.scrolled{
+    background-color: transparent;
+}
+.transparent{
+    background-color:var(--bg-100);
+    box-shadow: var(--shadow-carrito);
+}
 .navbar__section {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    width: 100%;
-    height: 100%;
-    background-color: var(--bg-100);
-    height: calc(var(--h-header) - 50px);
+    z-index: var(--z-header-nav);
+
 }
 
 /* navbar */
@@ -393,13 +389,7 @@ body.darkmode {
     transition: background-color 1s;
 }
 
-.hidden.transparent {
-    background-color: transparent;
-}
 
-.navbar.scrolled {
-    background-color: var(--bg-100);
-}
 
 /* fin navbar */
 .container {
@@ -622,7 +612,8 @@ body.darkmode {
 }
 
 .img__prod:hover img {
-    transform: rotateY(360deg);
+    transform: rotateY(90deg);    
+    z-index: 0;
 }
 
 .precio {
